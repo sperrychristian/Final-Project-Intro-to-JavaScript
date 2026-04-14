@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Pantry App</title>
+
+    <!--
+      This HTML file defines the structure of the application.
+
+      The application is designed as a Single Page App (SPA), meaning:
+      - Only one HTML file is used
+      - JavaScript dynamically updates the content inside the page
+      - Navigation does not reload the page
+
+      Responsibilities:
+      - HTML: Structure
+      - CSS: Styling
+      - JavaScript: Behavior and dynamic rendering
+    -->
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- =============================
+         HEADER
+         ============================= -->
+    <!--
+      Displays the title and description of the application.
+      This section remains constant across all views.
+    -->
+    <header class="site-header">
+      <h1>Recipe Pantry App</h1>
+      <p class="subtitle">
+        Track pantry ingredients, build recipes, and cook meals.
+      </p>
+    </header>
+
+    <!-- =============================
+         NAVIGATION
+         ============================= -->
+    <!--
+      Navigation buttons used to switch between views.
+
+      These buttons do not load new pages.
+      JavaScript listens for click events and updates the
+      main content area (#app) accordingly.
+
+      Views:
+      - Home
+      - Ingredients
+      - Recipes
+    -->
+    <nav class="main-nav">
+      <button id="nav-home" class="nav-btn">Home</button>
+      <button id="nav-ingredients" class="nav-btn">Ingredients</button>
+      <button id="nav-recipes" class="nav-btn">Recipes</button>
+    </nav>
+
+    <!-- =============================
+         FLASH MESSAGE CONTAINER
+         ============================= -->
+    <!--
+      This container is used to display temporary messages.
+
+      Examples:
+      - Success messages (e.g., "Ingredient added successfully")
+      - Error messages (e.g., "Insufficient ingredients")
+
+      JavaScript dynamically inserts and removes messages here.
+    -->
+    <div id="flash-container"></div>
+
+    <!-- =============================
+         MAIN APPLICATION CONTAINER
+         ============================= -->
+    <!--
+      This is the primary rendering area for the application.
+
+      JavaScript dynamically replaces the contents of this
+      container to display different views.
+
+      Possible views:
+      - Home view
+      - Ingredients management view
+      - Recipes list view
+      - Recipe detail view
+
+      This enables SPA behavior without multiple HTML files.
+    -->
+    <main id="app">
+      <!-- Default content shown before JavaScript renders -->
+      <section class="card">
+        <h2>Welcome</h2>
+        <p>
+          Manage your pantry and recipes. Cook a recipe to automatically
+          subtract ingredients.
+        </p>
+        <p>
+          JavaScript will dynamically update this section based on user
+          interaction.
+        </p>
+      </section>
+    </main>
+
+    <!-- =============================
+         STRUCTURAL OVERVIEW
+         ============================= -->
+    <!--
+      INGREDIENTS VIEW:
+      - Form to create or top up ingredients
+      - Search/filter input
+      - Sorted ingredient list (low to high quantity)
+      - Visual indicators for low stock
+
+      RECIPES VIEW:
+      - Form to create or edit recipes
+      - Ingredient selection from pantry
+      - Recipe list with actions (view, edit, delete)
+
+      RECIPE DETAIL VIEW:
+      - Recipe title and optional image
+      - Ingredient list with required quantities
+      - Pantry comparison ("have X remaining")
+      - Highlight insufficient ingredients
+      - Scale controls (1/2x, 1x, 2x)
+      - Cook button to deduct ingredients
+    -->
+
+    <!-- =============================
+         JAVASCRIPT
+         ============================= -->
+    <!--
+      The script.js file contains all application logic.
+
+      Responsibilities include:
+      - Managing application state
+      - Handling navigation
+      - Rendering dynamic content
+      - Interacting with localStorage
+      - Performing unit conversions
+      - Handling recipe cooking logic
+    -->
+    <script src="script.js"></script>
+  </body>
+</html>

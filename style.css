@@ -1,0 +1,335 @@
+/* =========================================================
+   RECIPE PANTRY APP - STYLESHEET
+   =========================================================
+
+   This CSS file defines the visual styling of the application.
+
+   The goal of this stylesheet is to:
+   - Provide a clean and readable layout
+   - Use reusable styles for consistency
+   - Support dynamic content rendered by JavaScript
+   - Highlight important states (low stock, insufficient ingredients)
+
+   The design prioritizes clarity and usability over complexity.
+*/
+
+/* =========================================================
+   GLOBAL RESET AND BASE STYLES
+   ========================================================= */
+
+/* Ensures padding and borders are included in element sizing */
+* {
+  box-sizing: border-box;
+}
+
+/* Base page styling */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f7fb;
+  color: #1f2933;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   HEADER STYLES
+   ========================================================= */
+/*
+  Styles the top section of the app containing the title.
+  This area remains consistent across all views.
+*/
+.site-header {
+  background-color: #2f4858;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Subtitle text under the main title */
+.subtitle {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   NAVIGATION BAR
+   ========================================================= */
+/*
+  Navigation buttons allow switching between views.
+  JavaScript handles the actual view changes.
+*/
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: white;
+  border-bottom: 1px solid #d8dee4;
+}
+
+/* Shared button styling */
+.nav-btn,
+.btn {
+  border: none;
+  border-radius: 8px;
+  background-color: #33658a;
+  color: white;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.nav-btn:hover,
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Button variations for different actions */
+.btn-secondary {
+  background-color: #6c757d;
+}
+
+.btn-danger {
+  background-color: #b00020;
+}
+
+.btn-success {
+  background-color: #2d7d46;
+}
+
+/* Smaller buttons for actions like edit/delete */
+.btn-small {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   MAIN APPLICATION CONTAINER
+   ========================================================= */
+/*
+  This container holds all dynamically rendered content.
+  JavaScript replaces content inside this section.
+*/
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* =========================================================
+   CARD COMPONENT
+   ========================================================= */
+/*
+  Cards are reusable containers for sections like:
+  - Forms
+  - Ingredient lists
+  - Recipe lists
+
+  Provides visual separation and consistency.
+*/
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Grid layout for splitting content into columns */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+/* =========================================================
+   FORM STYLING
+   ========================================================= */
+/*
+  These styles ensure all forms are consistent and readable.
+  JavaScript will dynamically generate many of these forms.
+*/
+form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid #c9d2db;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font: inherit;
+}
+
+/* Larger input area for instructions */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Helper text under inputs */
+.tip {
+  margin-top: -0.25rem;
+  font-size: 0.85rem;
+  color: #5f6c7b;
+}
+
+/* =========================================================
+   LIST AND ITEM STYLES
+   ========================================================= */
+/*
+  Used for displaying ingredients and recipes.
+*/
+.list-item {
+  border: 1px solid #e4e8ee;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background-color: #fafbfc;
+  margin-bottom: 0.75rem;
+}
+
+/* Layout for content + actions */
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Container for buttons like edit/delete */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   VISUAL STATE INDICATORS
+   ========================================================= */
+/*
+  These classes are applied dynamically by JavaScript.
+*/
+
+/* Low pantry stock */
+.low-stock {
+  color: #b00020;
+  font-weight: bold;
+}
+
+/* Insufficient ingredients for a recipe */
+.insufficient {
+  color: #b00020;
+  font-weight: bold;
+}
+
+/* Less important text */
+.muted {
+  color: #6b7280;
+}
+
+/* Empty state text */
+.empty {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* =========================================================
+   RECIPE IMAGE
+   ========================================================= */
+/*
+  Ensures recipe images display nicely and do not overflow.
+*/
+.recipe-image {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   RECIPE INGREDIENT ROW (FORM)
+   ========================================================= */
+/*
+  Used when dynamically adding ingredient rows in a recipe form.
+*/
+.ingredient-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 0.5rem;
+  align-items: end;
+  margin-bottom: 0.75rem;
+}
+
+/* =========================================================
+   SCALE BUTTONS
+   ========================================================= */
+/*
+  Used in the recipe detail view to scale ingredient quantities.
+*/
+.scale-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+/* Highlights the currently selected scale */
+.active-scale {
+  outline: 3px solid #ffcc80;
+}
+
+/* =========================================================
+   FLASH MESSAGES
+   ========================================================= */
+/*
+  Displays temporary notifications in the top-right corner.
+*/
+.flash {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.flash-success {
+  background-color: #2d7d46;
+}
+
+.flash-error {
+  background-color: #b00020;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+/*
+  Adjusts layout for smaller screens.
+*/
+@media (max-width: 700px) {
+  .ingredient-row {
+    grid-template-columns: 1fr;
+  }
+}
