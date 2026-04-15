@@ -149,6 +149,7 @@ function formatQty(quantity) {
   return (Math.round(quantity * 100) / 100).toString();
 }
 
+// replacing characters with html meaning with their entity equivilents to prevent XSS attacks
 // escapeHtml()
 // Takes a user-supplied string and replaces the five HTML-special characters
 // with their entity equivalents so the string can safely be embedded in an
@@ -332,6 +333,8 @@ function render() {
     app.innerHTML = renderRecipeDetail(state.current_recipe_id);
 
     // Look up the recipe. Might be missing if it was deleted.
+    // find searches through the array and returns the first item where the
+    // recipe id matches rather than using a for loop with an early return statement.
     const recipe = state.recipes.find((r) => r.id === state.current_recipe_id);
 
     // Only populate the dynamic pieces if the recipe actually exists.
