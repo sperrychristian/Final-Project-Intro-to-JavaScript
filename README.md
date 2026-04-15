@@ -6,7 +6,7 @@ Built as the final project for JavaScript for Web Development, Spring 2026.
 
 ## Live Demo
 
-[View the live app](INSERT_YOUR_GITHUB_PAGES_URL_HERE)
+[View the live app](https://sperrychristian.github.io/Final-Project-Intro-to-JavaScript/)
 
 ## Features
 
